@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<div style="padding: 1em; ">
+<h2 style="float: right; padding-top: 0.5em; padding-right: 1em;">Documenting Israel's 1948 Generation</h2>
+<img src="/static/images/logo.png">
+<br>
+<hr>
+<h3>We think you might enjoy...</h3>
+
+
+
+<div class="row">
+{% for video in videos %}
+<div class="col-4">
+  <div class="box"  style="padding: 1em; text-align:center;" >
+    <div class="icon">
+      <iframe width="300" src="https://www.youtube.com/embed/{{ video[0] }}"
+      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+    </div>
+    <label"><a href="/person/{{ video[1] }}">{{ video[1] }}</a></label>
+
+  </div>
+</div>
+
+
+{% endfor %}
+
+<br>
+
+<br>
+
+
+</div>
+{% endblock %}
+

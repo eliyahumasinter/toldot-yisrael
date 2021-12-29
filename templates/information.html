@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %} About {{query}} {% endblock %}
+
+{% block content %}
+<div style="padding: 1em;">
+<h2>About {{query}}:</h2>
+{% if info %}
+{{ info }}<a href="{{url}}"> read more...</a>
+{% else %}
+Sorry, we weren't able to find anything on {{query}}
+{% endif %}
+<br><br>
+<img width="450" src="{{img}}">
+
+
+</div>
+{% endblock %}

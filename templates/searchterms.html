@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} {{search}} {% endblock %}
+
+{% block content %}
+<div style="padding:1em;">
+<h2>Results for: <a href="{{ url_for("information", information=search)}}">{{search}}</h2></a>
+<br>
+{% for link in final_dic %}
+    {% if final_dic[link] %}
+      <iframe width="600" height="300" src="https://www.youtube.com/embed/{{ link[0] }}"
+      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+      {% for x in final_dic[link] %}<br>
+        <a href="https://www.youtube.com/watch?t={{x-3}}&v={{link[0]}}&feature=youtu.be" target="_blank">
+        {{x}} seconds - 0{{x//3600}}:{{(x-(3600*(x//3600)))//60}}:{{x-((x//3600)*3600)-(((x-(3600*(x//3600)))//60)*60)}}</a>
+        {% endfor %}
+    {% endif %}
+    <br>
+    <hr>
+    {% endfor %}
+
+
+
+</div>
+{% endblock %}

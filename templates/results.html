@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Search results for {{ query }}{% endblock %}
+
+{% block content %}
+<div  style="padding: 1em;">
+{% for row in results %}
+<h1> <a href="/person/{{ row[1] }}">{{ row[1] }}</a></h1>
+{% if row[3]>1 %}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list={{ row[2] }}" title="{{ [row[1]]  }} video"
+frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{% else %}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ row[2] }}" title="{{ [row[1]]  }} video"
+frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+{% endif %}
+<hr>
+{% endfor %}
+</div>
+
+{% endblock %}
